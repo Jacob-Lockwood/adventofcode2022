@@ -1,19 +1,4 @@
-const sum = (arr: number[]) => arr.reduce((sum, n) => sum + n);
-const parseGroups = (str: string) =>
-  str.split("\n\n").map((group) => group.split("\n").map(Number));
-const part1 = (str: string) => {
-  const groups = parseGroups(str);
-  const summed = groups.map(sum);
-  return Math.max(...summed);
-};
-const part2 = (str: string) => {
-  const groups = parseGroups(str);
-  const summed = groups.map(sum);
-  const top3 = summed.sort((a, b) => b - a).slice(0, 3);
-  return sum(top3);
-};
-
-const input = `2494
+2494
 8013
 1055
 5425
@@ -2263,6 +2248,4 @@ const input = `2494
 3689
 5804
 1311
-1121`;
-
-console.log(part2(input));
+1121
