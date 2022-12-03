@@ -4,8 +4,8 @@
  */
 
 import { readFile } from "fs/promises";
+import { sum } from "../utils/sum.js";
 
-const sum = (arr: number[]) => arr.reduce((sum, n) => sum + n);
 const parseGroups = (str: string) =>
   str.split("\n\n").map((group) => group.split("\n").map(Number));
 

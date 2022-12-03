@@ -4,6 +4,7 @@
  */
 
 import { readFile } from "fs/promises";
+import { sum } from "../utils/sum.js";
 
 const scoreMap = { rock: 1, paper: 2, scissors: 3 } as const;
 const moveMap = {
@@ -62,7 +63,7 @@ const part1 = (input: string) => {
     const yourMove = moveMap[you];
     return determineScore(oppMove, yourMove);
   });
-  return scores.reduce((a, b) => a + b);
+  return sum(scores);
 };
 
 /**
@@ -75,7 +76,7 @@ const part2 = (input: string) => {
     const yourMove = chooseMove(moveMap[opp], needed);
     return determineScore(oppMove, yourMove);
   });
-  return scores.reduce((a, b) => a + b);
+  return sum(scores);
 };
 
 const input = readFile(new URL("./input.txt", import.meta.url), "utf8");
